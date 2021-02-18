@@ -13,7 +13,7 @@ function Search(props) {
                             name="search"
                             type="text"
                             className="form-control"
-                            placeholder="Search For a Movie"
+                            placeholder="Search For an Employee"
                             id="search"
                         />
                         <br />

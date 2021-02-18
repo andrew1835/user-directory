@@ -6,11 +6,11 @@ import "./style.css";
 
 class Index extends Component {
     state = {
-
-        thumbnail: "",
-        first: "",
-        last: "",
-        email: "",
+        employees: [],
+        // thumbnail: "",
+        // first: "",
+        // last: "",
+        // email: "",
         search: ""
     }
 
@@ -23,15 +23,15 @@ class Index extends Component {
         API.getRandomPerson()
             .then(res =>
                 this.setState({
-                    thumbnail: res.data.results[0].picture.thumbnail,
-                    first: res.data.results[0].name.first,
-                    last: res.data.results[0].name.last,
-                    email: res.data.results[0].email
+                    employees: res.data.results,
+                    // thumbnail: res.data.results[0].picture.thumbnail,
+                    // first: res.data.results[0].name.first,
+                    // last: res.data.results[0].name.last,
+                    // email: res.data.results[0].email
                 }))
 
 
             .catch(err => console.log(err));
-        console.log(this.state)
     }
 
 
@@ -39,12 +39,14 @@ class Index extends Component {
         return (
             <div>
                 <Search />
-                <Table
-                    thumbnail={this.state.thumbnail}
-                    first={this.state.first}
-                    last={this.state.last}
-                    email={this.state.email}
-                />
+                {this.state.employees.map((employee) => (
+                    <Table
+                        thumbnail={employee.picture.thumbnail}
+                        first={employee.name.first}
+                        last={employee.name.last}
+                        email={employee.email}
+                    />
+                ))}
 
             </div>
 
