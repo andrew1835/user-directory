@@ -13,7 +13,7 @@ The assignment was really difficult. In order to complete it, I found myself spe
 # Links
 Link to GitHub repo: https://github.com/andrew1835/user-directory
 <br>
-Link to deployed application: https://mighty-eyrie-87189.herokuapp.com/
+Link to deployed application: https://andrewsuserdirectory.herokuapp.com/
 
 # Screenshot
 This screenshot shows what the application looks like once the "Sort Alphabetically" button has been clicked
