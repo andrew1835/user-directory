@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import API from "../../utils/API"
 import Search from "../Search"
 import Table from "../Table"
-import SearchResults from "../SearchResults";
 import "./style.css";
 
 class Index extends Component {
