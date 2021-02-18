@@ -18,6 +18,8 @@ function Search(props) {
                         <br />
                         <button onClick={props.search} className="btn btn-primary" id="button">
                             Search </button>
+                        <button onClick={props.sort} className="btn btn-primary" id="buttonSort">
+                            Sort Alphabetically </button>
                     </div>
                 </div>
             </div>

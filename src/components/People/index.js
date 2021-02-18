@@ -38,7 +38,6 @@ class Index extends Component {
     handleInputChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
-        console.log(this.state.firstName);
     };
 
     searchByFirstName = (event) => {
@@ -49,6 +48,20 @@ class Index extends Component {
         this.setState({ employees: searchedName });
     };
 
+    sortByLastName = (event) => {
+        event.preventDefault();
+        const sortedEmployees = this.state.employees.sort((firstPerson, secondPerson) => {
+            if (firstPerson.name.last > secondPerson.name.last) {
+                return 1;
+            } else if (firstPerson.name.last < secondPerson.name.last) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+        this.setState({ employees: sortedEmployees });
+    }
+
 
 
     render() {
@@ -58,6 +71,8 @@ class Index extends Component {
                 <Search
                     search={this.searchByFirstName}
                     handleInputChange={this.handleInputChange}
+                    sort={this.sortByLastName}
+
                 />
 
                 {this.state.employees.map((employee) => (
