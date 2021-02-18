@@ -2,16 +2,18 @@ import React, { Component } from "react";
 import API from "../../utils/API"
 import Search from "../Search"
 import Table from "../Table"
+import SearchResults from "../SearchResults";
 import "./style.css";
 
 class Index extends Component {
     state = {
         employees: [],
+
         // thumbnail: "",
         // first: "",
         // last: "",
         // email: "",
-        search: ""
+
     }
 
 
@@ -34,11 +36,31 @@ class Index extends Component {
             .catch(err => console.log(err));
     }
 
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+        console.log(this.state.firstName);
+    };
+
+    searchByFirstName = (event) => {
+        event.preventDefault();
+        const searchedName = this.state.employees.filter(
+            (obj) => obj.name.first === this.state.search
+        );
+        this.setState({ employees: searchedName });
+    };
+
+
 
     render() {
         return (
             <div>
-                <Search />
+
+                <Search
+                    search={this.searchByFirstName}
+                    handleInputChange={this.handleInputChange}
+                />
+
                 {this.state.employees.map((employee) => (
                     <Table
                         thumbnail={employee.picture.thumbnail}
